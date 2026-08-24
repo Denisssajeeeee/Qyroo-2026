@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title> Qyroo - Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+
+  <div class="background-glow"></div>
+
+  <div class="container">
+
+    <!-- PROFILE -->
+
+    <div class="profile-header">
+
+      <div class="cover">
+
+        <div class="cover-overlay"></div>
+
+        <div class="brand">
+          © Qyroo 2026
+        </div>
+
+      </div>
+
+
+      <div class="profile-content">
+
+        <div class="avatar">
+          <img
+            src="img/avatar.png"
+            alt="Profile Picture"
+          >
+        </div>
+
+
+        <h1>
+          <p 
+            class="username"
+            id="username"  
+        </p>
+        </h1>
+
+
+        <p
+          class="username"
+          id="profileEmail"
+        >
+          Loading...
+        </p>
+
+
+        <p class="description">
+          Pengguna Qyroo Gratis 
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- INFORMATION -->
+
+    <div class="info-card">
+
+      <!-- EMAIL -->
+
+      <div class="info-item">
+
+        <div class="icon">
+          ✉
+        </div>
+
+        <div>
+
+          <span>
+            Email
+          </span>
+
+          <p id="userEmail">
+            Loading...
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- STATUS -->
+
+      <div class="info-item">
+
+        <div class="icon">
+          ✓
+        </div>
+
+        <div>
+
+          <span>
+            Status
+          </span>
+
+          <p class="active">
+            Active
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- LOGIN METHOD -->
+
+      <div class="info-item">
+
+        <div class="icon">
+          🔐
+        </div>
+
+        <div>
+
+          <span>
+            Login Method
+          </span>
+
+          <p>
+            Email
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <div class="card">
+
+      <div class="card-title">
+
+        <span class="title-icon">
+          ✦
+        </span>
+
+        Information For User
+
+      </div>
+
+
+      <p class="about-text">
+        Website Ini Masih Dalam Pengembangan Jadi Kalo Mau Komplain Error hub admin  Tele : @DennNotDeveloper     </p>
+    </div>
+
+
+
+    <!-- LOGOUT -->
+
+    <div class="actions">
+
+      <button
+        class="logout-btn"
+        onclick="logout()"
+      >
+
+        <span>
+          ↪
+        </span>
+
+        Logout
+
+      </button>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="bottom-nav">
+
+      <a
+        href="profile.html"
+        class="nav-item active"
+      >
+        <span>●</span>
+        <small>PROFILE</small>
+      </a>
+
+
+      <a
+        href="produk.html"
+        class="nav-item"
+      >
+        <span>◆</span>
+        <small>PRODUK</small>
+      </a>
+
+
+      <a
+        href="home.html"
+        class="nav-item"
+      >
+        <span>⌂</span>
+        <small>HOME</small>
+      </a>
+
+
+      <a
+        href="docs.html"
+        class="nav-item"
+      >
+        <span>▣</span>
+        <small>DOCS</small>
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- FIREBASE -->
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+  <script src="js/app.js"></script>
+
+
+  <!-- AUTH CHECK -->
+
+  <script>
+
+    firebase.auth().onAuthStateChanged(user => {
+
+      if (user) {
+
+        document.getElementById("userEmail").innerText =
+          user.email;
+
+        document.getElementById("profileEmail").innerText =
+          user.email;
+
+      } else {
+
+        window.location.href = "login.html";
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
